@@ -16,7 +16,7 @@
 
     function createPlant(){};
     function getAll(){
-      return $http.get('https://rocky-lake-25450.herokuapp.com/todos')
+      return $http.get('https://plants-api1.herokuapp.com/plants')
                   .then(function(response){
                     o.plants = response.data;
                   });
