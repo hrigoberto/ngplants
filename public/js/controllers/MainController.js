@@ -13,5 +13,9 @@
                   plants = PlantService.plants
                   console.log(plants);
                 });
+
+  PlantService.create();
+  PlantService.delete();
+  PlantService.update();              
   }
 })();
