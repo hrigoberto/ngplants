@@ -5,6 +5,8 @@
   PlantService.$inject = ['$http'];
 
   function PlantService($http){
+
+    var baseUrl = 'https://plants-api1.herokuapp.com/'
     var o = {
       create: createPlant,
       readAll: getAll,
@@ -16,12 +18,18 @@
 
     function createPlant(){};
     function getAll(){
-      return $http.get('https://plants-api1.herokuapp.com/plants')
+      return $http.get('plants')
                   .then(function(response){
                     o.plants = response.data;
                   });
     };
     function updatePlant(){};
-    function deletePlant(){};
+    function deletePlant(id){
+      return $http.delete(baseUrl + 'plants/' + id)
+                  .then(function(response){
+                    console.log('delete', response);
+                    getAll();
+                  })
+    };
   }
 })()
