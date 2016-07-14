@@ -5,17 +5,17 @@
   MainController.$inject = ['$scope', 'PlantService'];
 
   function MainController($scope, PlantService){
-    $scope.message = 'Hey hows it going'
+    $scope.plants = PlantService.plants;
+    getPlants();
 
-    var plants = PlantService.plants;
+
+  function getPlants(){
     PlantService.readAll()
                 .then(function(){
                   plants = PlantService.plants
                   console.log(plants);
                 });
+    }
 
-  PlantService.create();
-  PlantService.delete();
-  PlantService.update();              
   }
 })();
