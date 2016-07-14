@@ -24,6 +24,7 @@
       <div class="col-md-8 col-md-offset-2">
         <button class="btn btn-success btn-block" ng-click='create(commonName,scientificName,layerType,use)'>Create</button>
       </div>
+    </div>
       <div class="row" ng-repeat='eachItem in plants'>
         <div class="jumbotron" data-id="{{eachItem.id}}">
           <button class="btn btnsmall btn-danger pull-right" ng-click='delete(eachItem.id)'>x</button>
@@ -34,7 +35,7 @@
         </div>
       </div>
 
-    </div>
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
