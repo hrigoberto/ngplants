@@ -22,8 +22,18 @@
         </div>
       </div>
       <div class="col-md-8 col-md-offset-2">
-        <button class="btn btn-success btn-block" ng-click>Create</button>
+        <button class="btn btn-success btn-block" ng-click='create(commonName,scientificName,layerType,use)'>Create</button>
       </div>
+      <div class="row" ng-repeat='eachItem in plants'>
+        <div class="jumbotron" data-id="{{eachItem.id}}">
+          <button class="btn btnsmall btn-danger pull-right" ng-click='delete(eachItem.id)'>x</button>
+          <h1>{{ eachItem.commonName }}</h1>
+          <p>{{ eachItem.scientificName }}</p>
+          <p>{{ eachItem.layerType }}</p>
+          <p>{{ eachItem.use }}</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
