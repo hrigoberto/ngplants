@@ -8,8 +8,22 @@
     $scope.plants = PlantService.plants;
     $scope.create = createPlant;
     $scope.delete = deletePlant;
+    $scope.edit = editPlant;
+    $scope.update = updatePlant;
     getPlants();
 
+
+    function editPlant(plant){
+      plant.editing = true;
+    }
+
+    function updatePlant(plant){
+      plant.editing = false;
+      PlantService.update(plant.id, plant)
+                  .then(function(){
+                    getPlants();
+                  })
+    }
 
     function getPlants(){
       PlantService.readAll()
