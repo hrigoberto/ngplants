@@ -10,8 +10,12 @@
     $scope.delete = deletePlant;
     $scope.edit = editPlant;
     $scope.update = updatePlant;
+    $scope.cancel = cancelUpdate
     getPlants();
 
+    function cancelUpdate(plant){
+      plant.editing = false;
+    }
 
     function editPlant(plant){
       plant.editing = true;

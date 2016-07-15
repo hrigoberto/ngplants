@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>ngplants</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <div class="container" ng-controller="MainController">
+    <div>
+      <div class="jumbotron">
+        <h1 class="text-center">Welcome to the North Florida Permaculture Plant List</h1>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
@@ -27,25 +32,32 @@
     </div>
       <div class="row" ng-repeat='eachItem in plants'>
         <div class="jumbotron" data-id="{{eachItem.id}}">
-          <button class="btn btnsmall btn-danger pull-right" ng-click='delete(eachItem.id)'>x</button>
+          <button class="btn btnsmall btn-default pull-right" ng-click='delete(eachItem.id)'>
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
           <h1 ng-hide='eachItem.editing'>{{ eachItem.commonName }}</h1>
           <div ng-show="eachItem.editing">
+            <h3>Common Name</h3>
             <input type="text" ng-model="eachItem.commonName" class="form-control">
           </div>
           <p ng-hide='eachItem.editing'>{{ eachItem.scientificName }}</p>
           <div ng-show="eachItem.editing">
+            <label>Scientific Name</label>
             <input type="text" ng-model="eachItem.scientificName" class="form-control">
           </div>
           <p ng-hide='eachItem.editing'>{{ eachItem.layerType }}</p>
           <div ng-show="eachItem.editing">
+            <label>Layer Type</label>
             <input type="text" ng-model="eachItem.layerType" class="form-control">
           </div>
           <p ng-hide='eachItem.editing'>{{ eachItem.use }}</p>
           <div ng-show="eachItem.editing">
+            <label>Use</label>
             <input type="text" ng-model="eachItem.use" class="form-control">
           </div>
           <button ng-hide='eachItem.editing' class="btn btn-success" ng-click="edit(eachItem)">Edit</button>
           <button ng-show='eachItem.editing' class="btn btn-warning" ng-click="update(eachItem)">Update</button>
+          <button ng-show='eachItem.editing' class="btn btn-default" ng-click="cancel(eachItem)">Cancel</button>
         </div>
       </div>
 
